@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Doação</title>
+		<link rel="stylesheet" type="text/css" href="styles/reset.css">
+		<link rel="stylesheet" type="text/css" href="styles/caduser.css">
+	</head>
+	<body>
+		<header>
+		
+		</header>
+		<section>
+			<div id="container">
+				<form action="php/animalController.php?pag=cadAnimal" method="POST">
+					<fieldset>
+						<h3>Dados do animal</h3>
+						<br>
+						<label>Idade aproximada:</label>
+						<input type="text" name="idadeanimal" size ="80"  >
+						<br>
+						<label>Raça:</label>
+						<input type="text" name="racaanimal" size ="80"  >
+						<br>
+						<label>Peso:</label>
+						<input type="text" name="pesoanimal" size ="80"  >
+						<br>
+						<br>
+						<h3>Dados Adicionais</h3>
+						<br>
+						<label>Telefone</label>
+						<input type="text" name="telefonedoacao">
+						<br>
+						<button type="submit">Enviar</button>
+					</fieldset>
+				</form>
+			</div>
+		</section>
+		<footer>
+
+		</footer>
+	</body>
+</html>

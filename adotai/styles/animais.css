@@ -1,0 +1,29 @@
+body{
+	background: #ecf0f1;
+	position: relative;
+}
+body header{
+	position: relative;
+	text-align: left;
+}
+
+#container{
+	position: relative;
+	right: auto;
+	margin: auto;
+	background-color: #0f61ff;
+	top: 90px;
+	left: auto;
+	overflow: auto;
+	text-align: center;
+}
+
+
+header p{
+	text-decoration: none;
+	color: #fff;
+	display: inline-block;
+	padding: 50px 20px;
+	margin: 75px;
+	border: 2px 9px solid #fff;
+}

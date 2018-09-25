@@ -1,0 +1,49 @@
+body{
+	background: #ecf0f1;
+	position: relative;
+}
+body header{
+	
+	text-align: center;
+}
+#container{
+	position: relative;
+	left: 38%;
+	top: 90%;
+}
+body section form{
+	width: 10vw;
+}
+body section form fieldset{
+	text-align: center;
+}
+body section form fieldset legend {
+	font-size: 1.5vw;
+	font-weight: bold;
+	color: #0f61ff;
+	margin-bottom: 2vw;
+}
+body section form fieldset label{
+	color: #0f61ff;
+	display: inline-block;
+	font-weight: bold;
+	margin: 0.5vw 0; 
+}
+body section form fieldset input {
+	width: 20vw;
+}
+body section form fieldset button{
+	background: #0f61ff;
+	color: white;
+	width:20vw;
+	padding: 0.4vw 5vw;
+	font-size: 1vw;
+	font-weight: bold;
+	margin-top: 1vw;
+}
+body section form fieldset a{
+	text-decoration: none;
+	color:white;
+	display: inline-block;
+	width: 100%;
+}

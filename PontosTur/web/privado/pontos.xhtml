@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "htth://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <f:view locale="#{idiomaBean.locale}">
+        <h:head>
+            <title>Pontos | Ponto</title>
+            <h:outputStylesheet library="css" name="bootstrap.css" />
+        </h:head>
+        <h:body>
+            <ui:composition template="/template/layout.xhtml">
+
+                <ui:define name="content">
+                    <h:form class="form-horizontal" id="formulario">
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3>#{msg.ponto}</h3>
+                            </div>
+                            <div class="panel-body">
+
+                                <div class="form-group">
+                                    <h:outputLabel for="nome" class="control-label col-md-2" value="#{msg.ponto_nome}" />
+                                    <div class="col-md-10">
+                                        <h:inputText value="#{pontoBean.ponto.nome}" id="nome" label="#{msg.ponto_nome}" 
+                                                     class="form-control" required="true" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <h:outputLabel for="pais" class="control-label col-md-2" value="#{msg.ponto_pais} " />
+                                    <div class="col-md-10">
+                                        <h:inputText value="#{pontoBean.ponto.pais}" id="pais" label="#{msg.ponto_pais}" 
+                                                     class="form-control" required="true">
+                                           
+                                        </h:inputText>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <h:outputLabel for="cidade" class="control-label col-md-2" value="#{msg.ponto_cidade} " />
+                                    <div class="col-md-10">
+                                        <h:inputText value="#{pontoBean.ponto.cidade}" id="cidade" label="#{msg.ponto_cidade}" 
+                                                     class="form-control" required="true">                                            
+                                        </h:inputText>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="panel-footer">
+                                <div class="btn-group">
+                                    <h:commandButton actionListener="#{pontoBean.salvar()}"
+                                                     value="#{pontoBean.ponto.id == null ? msg.salvar : msg.atualizar} " 
+                                                     class="#{pontoBean.ponto.id == null ? 'btn btn-primary' : 'btn btn-warning'}">
+                                     
+                                    </h:commandButton>
+                                    <h:commandButton actionListener="#{pontoBean.limparCampos()}" immediate="true"
+                                                     value="#{msg.cancelar}" class="btn btn-default">
+                                         
+                                    </h:commandButton>
+                                </div>
+                            </div>
+                        </div>
+
+                    </h:form>
+
+                    <h:form id="formularioLista">
+
+                        <h:dataTable var="obj" value="#{pontoBean.pontos}"
+                                     class="table table-bordered table-condensed table-striped table-hover">
+                            <f:facet name="header">
+                                <h:outputText value="Lista de Pontos Turísticos" />
+                            </f:facet>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="ID" />
+                                </f:facet>
+                                <h:outputText value="#{obj.id}" />
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{msg.ponto_nome}" />
+                                </f:facet>
+                                <h:outputText value="#{obj.nome}" />
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{msg.ponto_pais}" />
+                                </f:facet>
+                                <h:outputText value="#{obj.pais}" />
+                            </h:column>
+
+                            <h:column >
+                                <f:facet name="header">
+                                    <h:outputText value="#{msg.ponto_cidade}" />
+                                </f:facet>
+                                <h:outputText value="#{obj.cidade}" />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{msg.ponto_acoes}" />
+                                </f:facet>
+                                <div class="btn-group">
+                                    <h:commandButton value="Alterar" action="#{pontoBean.prepararAlterar()}" class="btn btn-xs btn-warning">
+                                        <f:ajax execute=":formulario" render=":formulario :avisos" /> 
+                                        <f:setPropertyActionListener target="#{pontoBean.ponto}" value="#{obj}" />
+                                    </h:commandButton>
+                                    <h:commandButton value="Excluir" action="#{pontoBean.remover}" 
+                                                     class="btn btn-xs btn-danger"
+                                                     onclick="return confirm('Tem certeza?')">
+                                         
+                                        <f:setPropertyActionListener target="#{pontoBean.ponto}" value="#{obj}" />
+                                    </h:commandButton>
+                                </div>
+                            </h:column>
+                        </h:dataTable>
+                    </h:form>
+
+                </ui:define>
+            </ui:composition>
+        </h:body>
+    </f:view>
+</html>
+
